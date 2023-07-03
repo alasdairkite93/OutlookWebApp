@@ -20,7 +20,7 @@
       "48": "/static/outlookicon.png"
     },
   "host_permissions": [
-    "http://localhost:5000/*"
+    "https://testoutlookapp.azurewebsites.net/*"
   ],
   "web_accessible_resources": [
     {
