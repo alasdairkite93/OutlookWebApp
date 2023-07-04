@@ -7,8 +7,8 @@ CLIENT_SECRET = 'LDg8Q~J5WZXGRrjM2nvm6~HncXHjRtN4pezeUcES'
 
 # AUTHORITY = "https://login.microsoftonline.com/common"  # For multi-tenant app
 # AUTHORITY = f"https://login.microsoftonline.com/{('85132005-8032-4d02-a401-9573a4e9a5c2', 'common')}"
-# AUTHORITY='https://login.microsoftonline.com/common'
-AUTHORITY='http://localhost:5000'
+AUTHORITY='https://login.microsoftonline.com/common'
+
 REDIRECT_PATH = "/.auth/login/aad"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
 # in the app's registration in the Azure portal.
