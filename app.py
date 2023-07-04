@@ -46,7 +46,9 @@ def login():
 def auth_response():
     result = auth.complete_log_in(request.args)
     if "error" in result:
+        print('ERROR IN RESULT')
         return render_template("auth_error.html", result=result)
+    print('RETURNING INDEX')
     return redirect(url_for("index"))
 
 
