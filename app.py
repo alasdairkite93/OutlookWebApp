@@ -141,4 +141,4 @@ def sendMail():
     return render_template('index.html', user=auth.get_user(), version=__version__)
 
 if __name__ == "__main__":
-    app.run(debug=True, host='localhost')
+    app.run(debug=True)
