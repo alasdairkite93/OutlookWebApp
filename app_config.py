@@ -12,7 +12,7 @@ AUTHORITY='https://login.microsoftonline.com/common'
 REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
 # in the app's registration in the Azure portal.
-authority_template = "https://85132005-8032-4d02-a401-9573a4e9a5c2.b2clogin.com/85132005-8032-4d02-a401-9573a4e9a5c2.onmicrosoft.com/{signupsignin_user_flow}"
+authority_template = "https://www.testoutlookapp.azurewebsites.net"
 
 # You can find more Microsoft Graph API endpoints from Graph Explorer
 # https://developer.microsoft.com/en-us/graph/graph-explorer
