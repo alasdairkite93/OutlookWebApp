@@ -1,5 +1,5 @@
 import os
-
+b2c_tenant = ''
 # Application (client) ID of app registration
 CLIENT_ID = 'd9079521-7634-4a43-af74-230589f9b3c6'
 # Application's generated client secret: never check this into source control!
@@ -9,7 +9,7 @@ CLIENT_SECRET = 'LDg8Q~J5WZXGRrjM2nvm6~HncXHjRtN4pezeUcES'
 # AUTHORITY = f"https://login.microsoftonline.com/{('85132005-8032-4d02-a401-9573a4e9a5c2', 'common')}"
 AUTHORITY='https://login.microsoftonline.com/common'
 
-REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
+REDIRECT_PATH = "/.auth/login/aad"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
 # in the app's registration in the Azure portal.
 
