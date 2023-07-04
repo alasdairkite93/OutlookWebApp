@@ -17,7 +17,7 @@
       <li>And then <a href="{{ url_for('auth_response') }}">proceed</a>.</li>
     </ol>
     {% else %}
-    <ul><li><a href='{{ auth_uri }}' target=_blank>Sign In </a></li></ul>
+    <ul><li><a href='{{ auth_uri }}'>Sign In </a></li></ul>
     {% endif %}
 
     {% if config.get("B2C_RESET_PASSWORD_AUTHORITY") %}
