@@ -38,7 +38,8 @@ auth = identity.web.Auth(
 def login():
     return render_template("login.html", version=__version__, **auth.log_in(
         scopes=app_config.SCOPE, # Have user consent to scopes during log-in
-        redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
+        redirect_uri='https://www.testoutlookapp.azurewebsites.net/getAToken',
+        # redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
         ))
 
 
