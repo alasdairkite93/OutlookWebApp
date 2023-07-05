@@ -36,12 +36,24 @@ auth = identity.web.Auth(
 
 @app.route("/login")
 def login():
-    return render_template("login.html", version=__version__, **auth.log_in(
-        scopes=app_config.SCOPE, # Have user consent to scopes during log-in
-        redirect_uri='https://www.testoutlookapp.azurewebsites.net/getAToken',
-        # redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
-        ))
 
+    dict_logged = auth.log_in(scopes=app_config.SCOPE, redirect_uri='https://www.testoutlookapp.azurewebsites.net/getAToken')
+    result = completeLogin(dict_logged)
+    if "error" in result:
+        print('ERROR IN RESULT')
+        return render_template("auth_error.html", result=result)
+    print('RETURNING INDEX')
+    return redirect(url_for("index"))
+
+    # return render_template("login.html", version=__version__, **auth.log_in(
+    #     scopes=app_config.SCOPE, # Have user consent to scopes during log-in
+    #     redirect_uri='https://www.testoutlookapp.azurewebsites.net/getAToken',
+    #     # redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
+    #     ))
+
+def completeLogin(dict_logged):
+    result = auth.complete_log_in(dict_logged)
+    return result
 
 @app.route(app_config.REDIRECT_PATH)
 def auth_response():
