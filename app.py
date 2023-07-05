@@ -38,14 +38,15 @@ auth = identity.web.Auth(
 def login():
     return render_template("login.html", version=__version__, **auth.log_in(
         scopes=app_config.SCOPE,
-        redirect_uri="https://www.testoutlookapp.azurewebsites.net/getAToken",
+        # redirect_uri="https://www.testoutlookapp.azurewebsites.net/getAToken",
         # Have user consent to scopes during log-in
-        # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
+        redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
         ))
 
 
 @app.route(app_config.REDIRECT_PATH)
 def auth_response():
+    print(request.args.values())
     result = auth.complete_log_in(request.args)
     if "error" in result:
         print('ERROR IN RESULT')
@@ -143,4 +144,4 @@ def sendMail():
     return render_template('index.html', user=auth.get_user(), version=__version__)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='localhost')
